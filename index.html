@@ -4,15 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FireStore</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <title>FireStore - DirectoryApp</title>
+    <link
+      rel="shortcut icon"
+      href="https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-      <h1>Directory App</h1>
+    <h1>Directory App</h1>
     <div class="content">
-      <form id="directory"></form>
+      <form id="directory-form">
+        <input type="text" name="name" placeholder="Add Name" />
+        <input type="text" name="number" placeholder="Add Number" />
+        <button type="submit">Add</button>
+      </form>
       <ul id="directory-list"></ul>
     </div>
-    <script src="app.js"></script>
+    <script src="./firebase.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
