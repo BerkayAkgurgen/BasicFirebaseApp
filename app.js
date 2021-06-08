@@ -6,27 +6,18 @@ let listDirec = [];
 
 // Get Datas
 
-let datas = db.collection("directory").onSnapshot((snapshot) =>
-  snapshot.docs.map((doc) => {
-    const newUser = {
-      name: doc.data().name,
-      number: doc.data().number,
-      personId: doc.data().personId,
-      specId: doc.id,
-    };
-    listDirec.push(newUser);
-    renderDirectory();
-  })
-);
+let datas = db.collection("directory").onSnapshot((snapshot) => {
+  listDirec = snapshot.docs.map((doc) => ({
+    ...doc.data(),
+    specId: doc.id,
+  }));
+  renderDirectory();
+});
 
 // Render Persons
 
 function renderDirectory() {
-  let uniqItems = listDirec.filter(
-    (v, i, a) =>
-      a.findIndex((t) => t.place === v.place && t.name === v.name) === i
-  );
-  listHTML = uniqItems
+  listHTML = listDirec
     .map((item) => {
       return `
         <li data-id=${item.specId}><span>${item.name}</span><span class="number">${item.number}</span><i class="fas fa-trash-alt"></i></li>
